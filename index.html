@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical & Research Resources Hub</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --hover-color: #1abc9c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background-color: var(--primary-color);
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        #search {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        
+        #search:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.6);
+        }
+        
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .category-btn {
+            padding: 8px 16px;
+            background-color: var(--card-bg);
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+        
+        .resources {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .resource-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            padding: 15px 20px;
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .card-category {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+        }
+        
+        .card-description {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .card-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        
+        .card-link:hover {
+            background-color: var(--hover-color);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .resources {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Medical & Research Resources Hub</h1>
+            <div class="subtitle">Your one-stop gateway to premium healthcare and research resources</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search resources...">
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="all">All Categories</button>
+            <button class="category-btn" data-category="clinical">Clinical Medicine</button>
+            <button class="category-btn" data-category="research">Research</button>
+            <button class="category-btn" data-category="literature">Literature & Writing</button>
+            <button class="category-btn" data-category="pharmacopeia">Pharmacopeia</button>
+        </div>
+
+        <div class="resources">
+            <!-- Clinical Medicine -->
+            <div class="resource-card" data-category="clinical">
+                <div class="card-header">
+                    <div class="card-title">UpToDate</div>
+                    <div class="card-category">Clinical Medicine</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        Evidence-based clinical decision support tool providing the latest medical practice information and recommendations.
+                    </div>
+                    <a href="https://www.uptodate.cn/home" class="card-link" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="clinical">
+                <div class="card-header">
+                    <div class="card-title">ClinicalKey</div>
+                    <div class="card-category">Clinical Medicine</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        Comprehensive clinical information and evidence-based resources to support clinical decision-making and medical education.
+                    </div>
+                    <a href="https://www.clinicalkey.com/#!/" class="card-link" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <!-- Research -->
+            <div class="resource-card" data-category="research">
+                <div class="card-header">
+                    <div class="card-title">Protocol Exchange</div>
+                    <div class="card-category">Research</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        Experimental protocol sharing platform helping researchers optimize and share experimental methods.
+                    </div>
+                    <a href="https://protocolexchange.researchsquare.com/" class="card-link" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="research">
+                <div class="card-header">
+                    <div class="card-title">NC3Rs EDA</div>
+                    <div class="card-category">Research</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        Animal experiment design tool helping researchers optimize animal testing designs and reduce animal usage.
+                    </div>
+                    <a href="https://eda.nc3rs.org.uk/" class="card-link" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="research">
+                <div class="card-header">
+                    <div class="card-title">Bioz</div>
+                    <div class="card-category">Research</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        Life science research product rating platform helping researchers select appropriate reagents and tools.
+                    </div>
+                    <a href="https://www.bioz.com/" class="card-link" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="research">
+                <div class="card-header">
+                    <div class="card-title">AbMole</div>
+                    <div class="card-category">Research</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        Provider of inhibitors, agonists, and compound libraries; a leading brand for research inhibitors.
+                    </div>
+                    <a href="https://www.abmole.cn/" class="card-link" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <!-- Literature & Writing -->
+            <div class="resource-card" data-category="literature">
+                <div class="card-header">
+                    <div class="card-title">Google Scholar</div>
+                    <div class="card-category">Literature & Writing</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        Google's academic search engine covering scholarly literature across various disciplines.
+                    </div>
+                    <a href="http://scholar.google.com" class="card-link" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="literature">
+                <div class="card-header">
+                    <div class="card-title">Semantic Scholar</div>
+                    <div class="card-category">Literature & Writing</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        AI-powered academic search engine providing smarter literature search experiences.
+                    </div>
+                    <a href="https://www.semanticscholar.org/" class="card-link" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="literature">
+                <div class="card-header">
+                    <div class="card-title">QuillBot for Microsoft Word</div>
+                    <div class="card-category">Literature & Writing</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        AI writing assistant for paraphrasing, polishing, and optimizing scientific articles.
+                    </div>
+                    <a href="https://quillbot.com/word" class="card-link" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="literature">
+                <div class="card-header">
+                    <div class="card-title">Consensus</div>
+                    <div class="card-category">Literature & Writing</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        AI-driven scientific literature analysis tool helping understand scientific consensus.
+                    </div>
+                    <a href="https://consensus.app/" class="card-link" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <!-- Pharmacopeia -->
+            <div class="resource-card" data-category="pharmacopeia">
+                <div class="card-header">
+                    <div class="card-title">United States Pharmacopeia</div>
+                    <div class="card-category">Pharmacopeia</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        Authoritative reference for US pharmaceutical standards providing drug quality guidelines.
+                    </div>
+                    <a href="https://online.uspnf.com/uspnf" class="card-link" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="pharmacopeia">
+                <div class="card-header">
+                    <div class="card-title">European Pharmacopoeia</div>
+                    <div class="card-category">Pharmacopeia</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        European drug quality standard reference providing European pharmaceutical regulations and standards.
+                    </div>
+                    <a href="https://pheur.edqm.eu/home" class="card-link" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="pharmacopeia">
+                <div class="card-header">
+                    <div class="card-title">Japanese Pharmacopoeia</div>
+                    <div class="card-category">Pharmacopeia</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        Official document of Japanese pharmaceutical quality standards providing Japanese drug regulations and standards.
+                    </div>
+                    <a href="https://www.pmda.go.jp/" class="card-link" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="pharmacopeia">
+                <div class="card-header">
+                    <div class="card-title">Chinese Pharmacopoeia</div>
+                    <div class="card-category">Pharmacopeia</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        Official document of Chinese pharmaceutical quality standards providing Chinese drug regulations and standards.
+                    </div>
+                    <a href="https://db2.ouryao.com/yd2020/" class="card-link" target="_blank">Visit Website</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Medical & Research Resources Hub | Integrating premium healthcare and research resources</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Search functionality
+            const searchInput = document.getElementById('search');
+            const resourceCards = document.querySelectorAll('.resource-card');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                resourceCards.forEach(card => {
+                    const title = card.querySelector('.card-title').textContent.toLowerCase();
+                    const description = card.querySelector('.card-description').textContent.toLowerCase();
+                    const category = card.querySelector('.card-category').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || description.includes(searchTerm) || category.includes(searchTerm)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Category filter functionality
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active state from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active state to current button
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    resourceCards.forEach(card => {
+                        if (category === 'all') {
+                            card.style.display = 'flex';
+                        } else if (card.getAttribute('data-category') === category) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
